@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .content img { max-width: 100%; height: auto; }
+  </style>
+  <title>Follow-Ahead Human-Robot Navigation via MCTS and DRL</title>
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="./static/images/icon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1">Follow-Ahead Human-Robot Navigation via MCTS and Deep Reinforcement Learning</h1>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="./static/paper.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="./static/poster.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-image"></i>
+                  </span>
+                  <span>Poster</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/jonathanung/follow-ahead-project"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified" style="max-width: 800px; margin: 0 auto;">
+          <p>
+            We replicate a methodology for robotic follow-ahead applications that addresses obstacle and occlusion avoidance. A high-level decision-making algorithm generates short-term navigational goals by integrating Monte Carlo Tree Search (MCTS) with Deep Reinforcement Learning (DRL). Experiments demonstrate that MCTS-DRL outperforms standalone MCTS and DRL baselines across obstacle-free and obstacle-present environments.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered" style="flex: 1;">
+        <img src="./static/images/mcts.png" alt="MCTS diagram" style="max-width: 400px; width: 100%;">
+      </div>
+      <div class="column has-text-centered" style="flex: 1;">
+        <img src="./static/images/pseudocode.png" alt="Pseudocode" style="max-width: 400px; width: 100%;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Demo</h2>
+        <p>Demo video coming soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>&copy; 2026 Follow Ahead</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
