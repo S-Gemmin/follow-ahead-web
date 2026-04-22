@@ -35,6 +35,9 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1">Follow-Ahead Human-Robot Navigation via MCTS and Deep Reinforcement Learning</h1>
+          <p class="hero-tagline">
+            A hybrid planner that combines MCTS search with DRL value estimation to maintain follow-ahead behavior while handling obstacles and occlusions.
+          </p>
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
@@ -90,12 +93,103 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column has-text-centered" style="flex: 1;">
-        <img src="./static/images/mcts.png" alt="MCTS diagram" style="max-width: 400px; width: 100%;">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Key Contributions</h2>
+        <div class="content has-text-left">
+          <ul>
+            <li>Replicates a follow-ahead navigation pipeline that explicitly accounts for both obstacle avoidance and occlusion avoidance.</li>
+            <li>Uses MCTS for short-horizon planning in a continuous navigation setting with collision and occlusion pruning.</li>
+            <li>Injects DRL Q-value estimates into MCTS node evaluation to improve goal consistency compared with standalone MCTS or DRL.</li>
+          </ul>
+        </div>
       </div>
-      <div class="column has-text-centered" style="flex: 1;">
-        <img src="./static/images/pseudocode.png" alt="Pseudocode" style="max-width: 400px; width: 100%;">
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-6 has-text-centered">
+        <img src="./static/images/mcts.png" alt="MCTS diagram" class="method-image">
+      </div>
+      <div class="column is-6 has-text-centered">
+        <img src="./static/images/pseudocode.png" alt="Pseudocode" class="method-image">
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Method Overview</h2>
+        <div class="content">
+          <ol>
+            <li>Represent robot-human state in 2D pose space and evaluate three discrete actions at each 0.5 s planning step.</li>
+            <li>Train DDQN in obstacle-free simulation so Q-values capture follow-ahead quality from relative pose observations.</li>
+            <li>Expand MCTS over a 3-second receding horizon while pruning candidate nodes that collide or create occlusions.</li>
+            <li>Select the highest-value leaf as the short-term goal and execute with the ROS navigation stack.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Experimental Setup & Results</h2>
+        <div class="content">
+          <p>
+            We evaluate in a ROS2 Humble simulation with <code>fake_vicon</code>, <code>fake_odom</code>, and <code>rviz2</code>. The MCTS planner runs with UCB node selection over a 3-second horizon.
+          </p>
+          <p>
+            Poster-reported directional prediction accuracy:
+          </p>
+          <div class="table-container">
+            <table class="table is-striped is-fullwidth is-bordered">
+              <thead>
+                <tr>
+                  <th>Trajectory Type</th>
+                  <th>Accuracy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Straight</td>
+                  <td>96.1%</td>
+                </tr>
+                <tr>
+                  <td>Left Turn</td>
+                  <td>75.8%</td>
+                </tr>
+                <tr>
+                  <td>Right Turn</td>
+                  <td>77.4%</td>
+                </tr>
+                <tr>
+                  <td><strong>Overall</strong></td>
+                  <td><strong>90.1%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <ul>
+            <li>Paper-reported comparison: MCTS-DRL outperforms standalone MCTS and DRL in circular and S-shaped simulation trajectories.</li>
+            <li>In obstacle-free real-world tests, MCTS-DRL achieves comparable follow-ahead distance/orientation behavior to LBGP.</li>
+            <li>In obstacle-present settings, the robot adapts path choices to avoid both collisions and occlusions.</li>
+          </ul>
+          <h3 class="title is-5">ROS1 to ROS2 Migration</h3>
+          <ul>
+            <li>This replication ports a ROS1-oriented methodology into a ROS2 Humble simulation workflow.</li>
+            <li>The core planning logic (MCTS expansion, DRL value lookup, collision/occlusion pruning) is preserved while interfaces are adapted to ROS2 nodes and topics.</li>
+            <li>Validation currently focuses on simulation-level behavior parity; hardware deployment remains future work.</li>
+          </ul>
+          <div class="has-text-centered">
+            <img src="./static/images/qbot.jpg" alt="Quanser QBot platform used for planned deployment" class="method-image">
+            <p class="demo-caption">Quanser QBot platform for planned real-world validation.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -105,18 +199,39 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Demo</h2>
-        <p>Demo video coming soon.</p>
+        <h2 class="title is-3">Demo Scenarios</h2>
+        <p class="demo-intro">Robot Demo coming soon. Current simulation demos are shown below.</p>
+        <div class="columns is-variable is-5 is-multiline demo-grid">
+          <div class="column is-6">
+            <div class="demo-card">
+              <h3 class="title is-5">Sim Demo 1</h3>
+              <video controls preload="metadata" class="demo-video">
+                <source src="./static/video/sim-demo-1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p class="demo-caption">Follow-ahead tracking in simulation with dynamic heading changes.</p>
+            </div>
+          </div>
+          <div class="column is-6">
+            <div class="demo-card">
+              <h3 class="title is-5">Sim Demo 2</h3>
+              <video controls preload="metadata" class="demo-video">
+                <source src="./static/video/sim-demo-2.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <p class="demo-caption">Obstacle/occlusion-aware path adaptation while preserving forward-leading behavior.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
-      <p>&copy; 2026 Follow Ahead</p>
+      <p>&copy; 2026 Archita Srivastava, Ankush Singh, Gemmin Sugiura, and Jonathan Ung</p>
     </div>
   </div>
 </footer>

@@ -2,6 +2,13 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.hero-tagline {
+  max-width: 860px;
+  margin: 1rem auto 1.5rem;
+  font-size: 1.05rem;
+  color: #4a4a4a;
+}
+
 
 .footer .icon-link {
     font-size: 25px;
@@ -154,4 +161,47 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
+}
+
+.demo-intro {
+  margin-bottom: 1.25rem;
+  color: #4a4a4a;
+}
+
+.demo-grid {
+  margin-top: 0.5rem;
+}
+
+.demo-card {
+  border: 1px solid #dbdbdb;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(10, 10, 10, 0.06);
+}
+
+.demo-video {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+  background: #111;
+}
+
+.demo-caption {
+  margin-top: 0.75rem;
+  color: #4a4a4a;
+  text-align: left;
+}
+
+.method-image {
+  width: 100%;
+  max-width: 430px;
+}
+
+.citation-block {
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fafafa;
+  overflow-x: auto;
 }
