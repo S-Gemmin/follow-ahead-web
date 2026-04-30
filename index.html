@@ -183,7 +183,7 @@
           <ul>
             <li>This replication ports a ROS1-oriented methodology into a ROS2 Humble simulation workflow.</li>
             <li>The core planning logic (MCTS expansion, DRL value lookup, collision/occlusion pruning) is preserved while interfaces are adapted to ROS2 nodes and topics.</li>
-            <li>Validation currently focuses on simulation-level behavior parity; hardware deployment remains future work.</li>
+            <li>Hardware deployment is validated on a QBot robot using VICON pose estimation and Cartographer mapping</li>
           </ul>
           <div class="has-text-centered">
             <img src="./static/images/qbot.jpg" alt="Quanser QBot platform used for planned deployment" class="method-image">
@@ -197,34 +197,23 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Demo Scenarios</h2>
-        <p class="demo-intro">Robot Demo coming soon. Current simulation demos are shown below.</p>
-        <div class="columns is-variable is-5 is-multiline demo-grid">
-          <div class="column is-6">
-            <div class="demo-card">
-              <h3 class="title is-5">Sim Demo 1</h3>
-              <video controls preload="metadata" class="demo-video">
-                <source src="./static/video/sim-demo-1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <p class="demo-caption">Follow-ahead tracking in simulation with dynamic heading changes.</p>
-            </div>
-          </div>
-          <div class="column is-6">
-            <div class="demo-card">
-              <h3 class="title is-5">Sim Demo 2</h3>
-              <video controls preload="metadata" class="demo-video">
-                <source src="./static/video/sim-demo-2.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-              <p class="demo-caption">Obstacle/occlusion-aware path adaptation while preserving forward-leading behavior.</p>
+<div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Demo Scenarios</h2>
+            <p class="demo-intro">Robot Demo coming soon. Current simulation demos are shown below.</p>
+            <div class="columns is-centered demo-grid">
+              <div class="column is-8">
+                <div class="demo-card">
+                  <h3 class="title is-5">Sim Demo</h3>
+                  <video controls preload="metadata" class="demo-video">
+                    <source src="./static/video/video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
   </div>
 </section>
 
