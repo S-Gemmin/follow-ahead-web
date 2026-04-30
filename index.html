@@ -98,10 +98,11 @@
         <h2 class="title is-3">Key Contributions</h2>
         <div class="content has-text-left">
           <ul>
-            <li>Replicates a follow-ahead navigation pipeline that explicitly accounts for both obstacle avoidance and occlusion avoidance.</li>
-            <li>Uses MCTS for short-horizon planning in a continuous navigation setting with collision and occlusion pruning.</li>
-            <li>Injects DRL Q-value estimates into MCTS node evaluation to improve goal consistency compared with standalone MCTS or DRL.</li>
-          </ul>
+            <li>Re-implements the MCTS-DRL framework of Leisi Azar et al. from scratch in ROS2, including the MCTS planner, RL value function, and LSTM human action predictor.</li>
+            <li>Replaces random rollouts in MCTS with a pretrained RL value function, using learned value estimates to generate consistent short-term navigational goals.</li>
+            <li>Incorporates an LSTM-based human action predictor that biases tree expansion toward more probable human futures during planning.</li>
+            <li>Deploys the full system on a QBot2e platform using VICON for pose estimation and Cartographer for mapping, validating follow-ahead behavior across a range of trajectories.</li>
+          </ul>        
         </div>
       </div>
     </div>
