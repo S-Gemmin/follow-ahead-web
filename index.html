@@ -83,7 +83,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified" style="max-width: 800px; margin: 0 auto;">
           <p>
-            We replicate a methodology for robotic follow-ahead applications that addresses obstacle and occlusion avoidance. A high-level decision-making algorithm generates short-term navigational goals by integrating Monte Carlo Tree Search (MCTS) with Deep Reinforcement Learning (DRL). Experiments demonstrate that MCTS-DRL outperforms standalone MCTS and DRL baselines across obstacle-free and obstacle-present environments.
+            We replicate the MCTS-DRL framework of Leisi azar et al.  for robotic follow-ahead navigation. The method integrates Monte Carlo Tree Search with a pretrained RL value function, using learned value estimates in place of random rollouts to generate consistent short-term navigational goals, with an LSTM-based human action predictor biasing tree expansion toward more probable human futures. We re-implement the full framework from scratch in ROS2, including the MCTS planner, RL value function, and LSTM predictor, and deploy the system on a QBot2e using VICON for pose estimation and Cartographer for mapping. Experiments on a range of trajectories probe follow ahead behavior under controlled conditions.
           </p>
         </div>
       </div>
